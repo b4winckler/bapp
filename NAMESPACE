@@ -1,0 +1,16 @@
+export(
+    applyWell,
+    bestPeak,
+    bins,
+    estimatePeaks,
+    leftPeak,
+    peakSummary,
+    plotBins,
+    plotPeak,
+    plotPeaks,
+    randomProfile,
+    rightPeak,
+    sigscore
+    )
+
+import(mclust, ggplot2)

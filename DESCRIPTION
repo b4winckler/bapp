@@ -1,0 +1,10 @@
+Package: bapp
+Version: 0.0
+Date: 2012-05-09
+Title: Biobank Profiling and Affinity Proteomics functions
+Author: Björn Winckler <bjorn.winckler@gmail.com>
+Maintainer: Björn Winckler <bjorn.winckler@gmail.com>
+Depends: R (>= 2.8.0)
+Description: Utility functions for the Biobank Profiling group at SciLifeLab
+License: BSD
+Encoding: UTF-8
