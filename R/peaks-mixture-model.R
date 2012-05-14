@@ -36,10 +36,8 @@ plotPeak <- function(xlin)
     p  <- suppressWarnings(estimatePeaks(xlin))
     df <- as.data.frame(p)
     print(df)
-    if (any(is.na(df))) {
-        warning('Peak estimation failed, skipping...')
-        return()
-    }
+    if (any(is.na(df)))
+        stop('Peak estimation failed, skipping...')
 
     # Detect which peak to pick:
     # Take the one with smallest variability, unless it has a proportion

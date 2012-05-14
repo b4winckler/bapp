@@ -82,10 +82,8 @@ sigscore <- function(cats, pts)
     if (is.vector(pts) && length(cats) == length(pts))
         pts <- as.matrix(pts)
 
-    if (length(cats) != dim(pts)[1]) {
-        warning('Number of categories does not match rows of data')
-        return()
-    }
+    if (length(cats) != dim(pts)[1])
+        stop('Number of categories does not match rows of data')
 
     m <- rbind(cats, t(pts))
 
