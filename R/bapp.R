@@ -60,10 +60,10 @@ plotBins <- function(x, y,
         lines(qx, qm[3,], col=medianColor, lw=3)
 }
 
-bins <- function(x, n=5)
+bins <- function(x, width=5)
 {
-    bs <- seq(from=n/2, to=max(x)+n, by=n)
-    ls <- seq(from=n, by=n, length.out=length(bs)-1)
+    bs <- seq(from=width/2, to=max(x)+width, by=width)
+    ls <- seq(from=width, by=width, length.out=length(bs)-1)
     a  <- cut(x, breaks=bs, labels=ls)
     as.numeric(levels(a))[a]
 }
