@@ -80,7 +80,7 @@ randomProfile <- function(binCount, binSize)
 #
 sigscore <- function(cats, pts)
 {
-    if (is.vector(pts) && length(cats) == length(pts))
+    if (is.vector(pts))
         pts <- as.matrix(pts)
 
     if (length(cats) != dim(pts)[1])
