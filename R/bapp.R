@@ -56,7 +56,8 @@ plotBins <- function(x, y,
         polygon(c(qx,rev(qx)), c(qm[2,],rev(qm[4,])), col=quartileColor)
 
     # Draw line on median
-    lines(qx, qm[3,], col=medianColor, lw=3)
+    if (!is.null(medianColor))
+        lines(qx, qm[3,], col=medianColor, lw=3)
 }
 
 bins <- function(x, n=5)
