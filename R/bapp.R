@@ -19,7 +19,7 @@
 #   df <- loadAGE()
 #   plotBins(bins(age,width=5), Ab_1891,
 #            data=subset(df, gender == 'male' & type == 'plasma'),
-#            main="A protein profile", xlab="Age" ylim=c(185,235))
+#            main="A protein profile", xlab="Age", ylim=c(185,235))
 #
 plotBins <- function(x, y,
                      data = data.frame(),
