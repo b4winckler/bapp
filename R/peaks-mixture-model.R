@@ -8,6 +8,12 @@ applyWell <- function(well, FUN=identity)
     tapply(well[ ,'RP1'], well[ ,'RID'], FUN)
 }
 
+# Apply 'FUN' to a particular bead in all wells, one well at a time.
+applyBead <- function(wells, bead, FUN=identity)
+{
+    lapply(wells, function(well) FUN(well[well[ ,'RID'] == bead, 'RP1']))
+}
+
 # Print summary of peaks and median for the given well.  Call
 #
 #   lapply(wells, peakSummary)
