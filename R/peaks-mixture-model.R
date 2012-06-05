@@ -2,6 +2,19 @@ library(mclust)
 library(ggplot2)
 
 
+# Convert list of matrices to list of data frames containing the RID and RP1
+# columns as well as a column identifying the well.
+wellsAsDataFrames <- function(wells)
+{
+    dfs <- lapply(names(wells), function(name) {
+        w <- wells[[name]]
+        data.frame(rid=w[ ,'RID'], well=name, rp1=w[ ,'RP1'])
+    })
+
+    names(dfs) <- names(wells)
+    dfs
+}
+
 # Split well into groups by bead ID, then apply 'FUN' to each group in turn.
 applyWell <- function(well, FUN=identity)
 {

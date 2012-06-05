@@ -11,7 +11,8 @@ export(
     plotPeaks,
     randomProfile,
     rightPeak,
-    sigscore
+    sigscore,
+    wellsAsDataFrames
     )
 
 import(mclust, ggplot2)
