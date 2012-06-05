@@ -72,3 +72,25 @@ randomProfile <- function(binCount, binSize)
 {
     data.frame(x=rep(1:binCount, binSize), y=rnorm(binCount*binSize))
 }
+
+# Compute entropy of a discrete probability distribution function (pdf).  If
+# 'relative=TRUE' then the result is normalized by the maximum entropy for a
+# pdf on 'n' elements, where 'n' is the number of positive entries in 'p'.  The
+# effect of this normalization is that the returned value lies in the unit
+# interval.
+entropy <- function(p, relative=FALSE)
+{
+    q <- p[p > 0 & !is.na(p)]
+    n <- length(q)
+    ifelse(n > 1, -sum(q * log2(q)) / ifelse(relative, log2(n), 1), 0)
+}
+
+# Compute entropy for a partition of 'x' with the given breaks.  The 'breaks'
+# argument is documented in the help for 'cut'.  If 'relative=TRUE' then the
+# entropy is normalized to lie within the unit interval.
+partitionEntropy <- function(x, breaks, ...)
+{
+    partition <- cut(x, breaks=breaks)
+    freq      <- tapply(x, partition, length)
+    entropy(freq / sum(freq, na.rm=TRUE), ...)
+}
