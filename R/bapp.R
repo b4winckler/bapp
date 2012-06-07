@@ -82,7 +82,7 @@ entropy <- function(p, relative=FALSE)
 {
     q <- p[p > 0 & !is.na(p)]
     n <- length(q)
-    ifelse(n > 1, -sum(q * log2(q)) / ifelse(relative, log2(n), 1), 0)
+    ifelse(n > 1, -sum(q * log2(q)) / ifelse(relative, log2(length(p)), 1), 0)
 }
 
 # Compute entropy for a partition of 'x' with the given breaks.  The 'breaks'
