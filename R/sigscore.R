@@ -13,13 +13,14 @@ sigscore <- function(cats, pts, quiet=FALSE)
     if (is.vector(pts))
         pts <- as.matrix(pts)
 
-    if (length(cats) != dim(pts)[1])
+    d <- dim(pts)
+    if (length(cats) != d[1])
         stop('Number of categories does not match rows of data')
 
     m <- rbind(cats, t(pts))
 
     if (!quiet)
-        message('Computing signature scores...')
+        message(paste('Computing', d[2], 'signature scores...'))
     fname <- tempfile()
     csv <- write.table(m, file=fname, row.names=FALSE, col.names=FALSE,
                        na="", sep=",")
