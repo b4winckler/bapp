@@ -27,6 +27,11 @@ sigscore <- function(cats, pts, quiet=FALSE)
 
     z <- system(paste('sigscore',fname), intern=TRUE, ignore.stderr=quiet)
     system(paste('rm',fname))
-    as.numeric(z)
+
+    vals <- as.numeric(z)
+    if (!is.null(colnames(pts)))
+        names(vals) <- colnames(pts)
+
+    vals
 }
 
